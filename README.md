@@ -39,10 +39,22 @@ O treino da GCN na GPU não é bit a bit determinístico, então os números pod
 ## Dados
 
 `data/images/` tem as 5.202 imagens usadas (5 classes: Broken, Immature, Intact, Skin-damaged, Spotted),
-já sem as 311 duplicatas, em 224×224 (as originais de 227×227 preenchidas com preto até ficarem
-quadradas e redimensionadas), salvas em PNG sem perda.
+já sem as 311 duplicatas, redimensionadas de 227×227 para 224×224 e salvas em PNG sem perda.
 `data/split.json` é a divisão 70/20/10 estratificada: 3.641 de treino, 1.041 de validação e 520 de teste.
 Rótulos só são usados no treino; a validação escolhe os hiperparâmetros e o teste é reportado uma vez.
+
+### Origem e licença
+
+Dataset **Soybean Seeds** (5.513 imagens, 5 classes, recortes de 227×227 de fotos de 3072×2048,
+classificados segundo a norma GB1352-2009), distribuído sob
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/):
+
+> Lin, Wei; Fu, Youhao; Xu, Peiquan; Liu, Shuo; Ma, Daoyi; Jiang, Zitian; Zang, Siyang; Yao, Heyang;
+> Su, Qin (2023), "Soybean Seeds", Mendeley Data, V5, doi: [10.17632/v6vzvfszj6.5](https://doi.org/10.17632/v6vzvfszj6.5)
+
+Obtido pelo Kaggle: <https://www.kaggle.com/datasets/aryashah2k/soybean-seedsclassification-dataset>.
+**Modificações feitas aqui:** remoção de 311 imagens duplicadas; redimensionamento de 227×227 para 224×224
+(LANCZOS); conversão de BMP para PNG sem perda.
 
 ## Arquivos
 
