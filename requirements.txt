@@ -1,0 +1,9 @@
+# testado com Python 3.13
+torch==2.5.1
+torch_geometric==2.6.1
+numpy==2.4.6
+scipy==1.17.1
+scikit-image==0.26.0
+pillow==12.2.0
+optuna==4.9.0
+igraph==1.0.0

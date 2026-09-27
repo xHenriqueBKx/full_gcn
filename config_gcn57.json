@@ -1,0 +1,21 @@
+{
+  "lr": 0.0025578698483086325,
+  "wd": 0.0015229048456720275,
+  "emb_dim": 5,
+  "w_rank": 0.9866177169932014,
+  "w_ssl": 1.1985791829032524,
+  "w_comm": 0.4947931222460247,
+  "rank_margin": 0.5151339166168589,
+  "ssl_margin": 0.16279139849706464,
+  "comm_margin": 0.9017239954148053,
+  "rank_batch": 1024,
+  "ssl_batch": 1024,
+  "comm_batch": 1024,
+  "k_gsl": 99160,
+  "rebuild_interval": 200,
+  "max_rebuilds": 25,
+  "early_rebuilds": 5,
+  "patience": 3,
+  "pure_min_train": 2,
+  "seed": 1
+}
