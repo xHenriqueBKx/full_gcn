@@ -67,11 +67,25 @@ Obtido pelo Kaggle: <https://www.kaggle.com/datasets/aryashah2k/soybean-seedscla
 | 5. Decisão: as duas visões concordam | `rules.decide` |
 | 6. Hiperparâmetros e resultado | `search.py`, `evaluate.py` |
 
-## Escolhas que o relatório não fixa
+## Detalhes de implementação
 
-- Hiperparâmetros da GCN: os da configuração #57 (`config_gcn57.json`).
-- Parada do treino da GCN: F (média harmônica de acerto e cobertura) das comunidades 100% puras no treino
-  (>= 2 imagens de treino) na validação; mínimo de 5 rebuilds e paciência de 3.
-- Ocorrência de um padrão na própria imagem de origem: a identidade conta.
-- Empate no voto: a primeira classe mais votada.
-- Salvaguarda da mineração: se um nível passar de 2 milhões de padrões, o trial falha (em vez de truncar).
+Pontos em que o texto principal do relatório não fixa exatamente o que fazer; o relatório os descreve em
+notas nas Seções 3 e 4, e o código segue isto:
+
+1. **Hiperparâmetros da GCN (configuração #57, `config_gcn57.json`).** Adam com taxa de aprendizado
+   0,0026 e decaimento de peso 0,0015; margens μ_ssl = 0,16, μ_rank = 0,52 e μ_comm = 0,90; pesos
+   w_ssl = 1,20, w_rank = 0,99 e w_comm = 0,49; 1.024 triplets de cada perda por época; rebuild a cada
+   200 épocas com os 99.160 pares mais similares; no máximo 25 rebuilds.
+2. **Parada do treino da GCN.** "O agrupamento nas comunidades deixa de melhorar na validação" é medido
+   pelas comunidades 100% puras no treino (pelo menos 2 imagens de treino, todas da mesma classe): acerto e
+   cobertura delas na validação, resumidos pela média harmônica (F). O treino roda pelo menos 5 rebuilds e
+   para após 3 rebuilds seguidos sem melhora; fica o checkpoint do melhor ponto.
+3. **Ocorrência na imagem de origem.** Os candidatos são definidos para as outras imagens; na imagem de
+   onde o padrão foi tirado, ele sempre ocorre (cada região mapeada nela mesma). Por isso, a imagem de
+   origem entra no suporte.
+4. **Empate no voto.** Se duas classes empatam em número de votos, a visão fica com a primeira delas na
+   ordem em que os votos foram contados.
+5. **Salvaguarda da mineração.** Mesmo sem limite de tamanho, alguns parâmetros (limiar baixo, suporte
+   mínimo 1) podem fazer o número de padrões explodir. Se um nível da mineração passar de 2 milhões de
+   padrões, a configuração é descartada na busca (`rules.TooManyPatterns`), em vez de seguir com os padrões
+   cortados. Assim, todo resultado reportado foi minerado sem corte; na busca, a trava nunca disparou.
