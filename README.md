@@ -69,8 +69,8 @@ Obtido pelo Kaggle: <https://www.kaggle.com/datasets/aryashah2k/soybean-seedscla
 
 ## Detalhes de implementação
 
-Pontos em que o texto principal do relatório não fixa exatamente o que fazer; o
-[relatório](docs/relatorio_full_gcn.pdf) os descreve em notas nas Seções 3 e 4, e o código segue isto:
+Pontos em que o [relatório](docs/relatorio_full_gcn.pdf) não fixa exatamente o que fazer, e a escolha
+feita no código:
 
 1. **Hiperparâmetros da GCN (configuração #57, `config_gcn57.json`).** Adam com taxa de aprendizado
    0,0026 e decaimento de peso 0,0015; margens μ_ssl = 0,16, μ_rank = 0,52 e μ_comm = 0,90; pesos
