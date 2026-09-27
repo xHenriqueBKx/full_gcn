@@ -6,7 +6,7 @@ as regras das duas visões votam na mesma classe; nas outras, o classificador se
 resultado tem dois números: **acerto** (entre as imagens classificadas) e **cobertura** (fração das
 imagens classificadas).
 
-O código segue o relatório `relatorio_full_gcn`, seção por seção.
+O código segue o [relatório](docs/relatorio_full_gcn.pdf) (`docs/relatorio_full_gcn.pdf`), seção por seção.
 
 ## Reproduzir
 
@@ -58,7 +58,7 @@ Obtido pelo Kaggle: <https://www.kaggle.com/datasets/aryashah2k/soybean-seedscla
 
 ## Arquivos
 
-| Relatório | Arquivo |
+| [Relatório](docs/relatorio_full_gcn.pdf) | Arquivo |
 |---|---|
 | 1. Grafo de regiões de cada imagem | `graph_data.py`, `region_graph.py`, `imaging.py`, `segmenters.py` |
 | 2. Visão full (344 features, z-score) | `graph_data.py`, `region_graph.py` |
@@ -69,8 +69,8 @@ Obtido pelo Kaggle: <https://www.kaggle.com/datasets/aryashah2k/soybean-seedscla
 
 ## Detalhes de implementação
 
-Pontos em que o texto principal do relatório não fixa exatamente o que fazer; o relatório os descreve em
-notas nas Seções 3 e 4, e o código segue isto:
+Pontos em que o texto principal do relatório não fixa exatamente o que fazer; o
+[relatório](docs/relatorio_full_gcn.pdf) os descreve em notas nas Seções 3 e 4, e o código segue isto:
 
 1. **Hiperparâmetros da GCN (configuração #57, `config_gcn57.json`).** Adam com taxa de aprendizado
    0,0026 e decaimento de peso 0,0015; margens μ_ssl = 0,16, μ_rank = 0,52 e μ_comm = 0,90; pesos
